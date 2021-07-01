@@ -12,6 +12,12 @@ services:
       - 'variables.env'
     volumes: 
     - ../src/goodbye/:/app
+  container:
+    build: .
+    env_file: 
+      - 'variables.env'
+    volumes: 
+    - ../src/container/:/app
   proxy:
     image: joedavidson1802/moxy:v0.2.1
     volumes: 

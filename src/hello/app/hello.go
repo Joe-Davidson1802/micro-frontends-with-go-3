@@ -16,6 +16,6 @@ func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	err := t.Render(r.Context(), w)
 
 	if err != nil {
-		http.Error(w, http.StatusInternalServerError, "failed to render")
+		http.Error(w, "failed to render", http.StatusInternalServerError)
 	}
 }

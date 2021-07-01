@@ -1,6 +1,8 @@
 {% package templates %}
 
 {% templ HelloTemplate(message string) %}
-  <p>{%= message %}</p>
+  <turbo-frame id="app-container">
+    <p>{%= message %}</p>
+  </turbo-frame>
 {% endtempl %}
 

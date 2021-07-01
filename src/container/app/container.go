@@ -1,17 +1,17 @@
 package app
 
 import (
+	"container/templates"
 	"fmt"
-	"goodbye/templates"
 	"net/http"
 	"time"
 )
 
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	nowTime := time.Now()
-	m := fmt.Sprintf("Goodbye, the time is %s", nowTime.String())
+	m := fmt.Sprintf("Container, the time is %s", nowTime.String())
 
-	t := templates.GoodbyeTemplate(m)
+	t := templates.ContainerTemplate(m)
 
 	err := t.Render(r.Context(), w)
 

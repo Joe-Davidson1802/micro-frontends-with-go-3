@@ -1,4 +1,4 @@
-module hello
+module container
 
 go 1.16
 

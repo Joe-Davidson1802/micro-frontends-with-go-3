@@ -1,5 +1,5 @@
 moxy_path = "/moxy"
-default_upstream = "http://localhost:8081"
+default_upstream = "http://hello"
 
 [[upstream]]
 path_prefix = "/apps/hello"
