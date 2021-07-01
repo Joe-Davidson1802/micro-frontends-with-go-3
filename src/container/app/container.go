@@ -8,7 +8,9 @@ import (
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
 	uri := r.RequestURI
 
-	if uri != "/" && uri != "" {
+	if uri == "/" && uri == "" {
+		uri = ""
+	} else {
 		uri = "/apps" + uri
 	}
 
