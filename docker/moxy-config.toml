@@ -1,0 +1,10 @@
+moxy_path = "/moxy"
+default_upstream = "http://localhost:8081"
+
+[[upstream]]
+path_prefix = "/apps/hello"
+host = "http://hello"
+
+[[upstream]]
+path_prefix = "/apps/goodbye"
+host = "http://goodbye"

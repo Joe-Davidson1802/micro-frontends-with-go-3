@@ -1,0 +1,20 @@
+version: "3"
+services:
+  hello:
+    build: .
+    env_file: 
+      - 'variables.env'
+    volumes: 
+    - ../src/hello/:/app
+  goodbye:
+    build: .
+    env_file: 
+      - 'variables.env'
+    volumes: 
+    - ../src/goodbye/:/app
+  proxy:
+    image: joedavidson1802/moxy:v0.2.1
+    volumes: 
+    - ./moxy-config.toml:/app/defaults.toml
+    ports:
+      - "80:80"
