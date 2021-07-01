@@ -1,6 +1,6 @@
 {% package templates %}
 
-{% templ ContainerTemplate() %}
+{% templ ContainerTemplate(url string) %}
 <html>
 	<head>
 		<title>{%= "Go Feed Me" %}</title>
@@ -10,10 +10,10 @@
 	</head>
 	<body>
     <nav>
-      <a href="/apps/hello">{%= "Hello" %}</a>
-      <a href="/apps/goodbye">{%= "Goodbye" %}</a>
+      <a href="/hello" target="_top">{%= "Hello" %}</a>
+      <a href="/goodbye" target="_top">{%= "Goodbye" %}</a>
     </nav>
-    <turbo-frame id="app-container">{%= "Select an app" %}</turbo-frame>
+	<turbo-frame id="app-container" src={%= url %}>{%= "Select an app" %}</turbo-frame>
 	</body>
 </html>
 {% endtempl %}

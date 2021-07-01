@@ -22,7 +22,7 @@ func Run(env string) {
 	}
 
 	r := mux.NewRouter()
-	r.PathPrefix("/").HandlerFunc(HandleRequest)
+	r.PathPrefix("").HandlerFunc(HandleRequest)
 
 	err := http.ListenAndServe(c.Port, r)
 	log.Fatal(err)

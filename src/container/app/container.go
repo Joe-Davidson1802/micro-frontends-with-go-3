@@ -2,16 +2,17 @@ package app
 
 import (
 	"container/templates"
-	"fmt"
 	"net/http"
-	"time"
 )
 
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
-	nowTime := time.Now()
-	m := fmt.Sprintf("Container, the time is %s", nowTime.String())
+	uri := r.RequestURI
 
-	t := templates.ContainerTemplate(m)
+	if uri != "/" && uri != "" {
+		uri = "/apps" + uri
+	}
+
+	t := templates.ContainerTemplate(uri)
 
 	err := t.Render(r.Context(), w)
 

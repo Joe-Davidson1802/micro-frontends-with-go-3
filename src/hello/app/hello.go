@@ -8,6 +8,7 @@ import (
 )
 
 func HandleRequest(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Content-Type", "text/html")
 	nowTime := time.Now()
 	m := fmt.Sprintf("Hello, the time is %s", nowTime.String())
 

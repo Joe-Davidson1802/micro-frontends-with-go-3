@@ -8,6 +8,19 @@ import "io"
 
 func GoodbyeTemplate(message string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
+		ctx, _ = templ.RenderedCSSClassesFromContext(ctx)
+		_, err = io.WriteString(w, "<turbo-frame")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " id=\"app-container\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
 		_, err = io.WriteString(w, "<p>")
 		if err != nil {
 			return err
@@ -17,6 +30,10 @@ func GoodbyeTemplate(message string) templ.Component {
 			return err
 		}
 		_, err = io.WriteString(w, "</p>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</turbo-frame>")
 		if err != nil {
 			return err
 		}

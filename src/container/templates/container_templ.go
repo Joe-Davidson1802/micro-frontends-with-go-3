@@ -6,18 +6,182 @@ import "github.com/a-h/templ"
 import "context"
 import "io"
 
-func ContainerTemplate(message string) templ.Component {
+func ContainerTemplate(url string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, w io.Writer) (err error) {
 		ctx, _ = templ.RenderedCSSClassesFromContext(ctx)
-		_, err = io.WriteString(w, "<p>")
+		_, err = io.WriteString(w, "<html>")
 		if err != nil {
 			return err
 		}
-		_, err = io.WriteString(w, templ.EscapeString(message))
+		_, err = io.WriteString(w, "<head>")
 		if err != nil {
 			return err
 		}
-		_, err = io.WriteString(w, "</p>")
+		_, err = io.WriteString(w, "<title>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, templ.EscapeString("Go Feed Me"))
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</title>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<meta")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " charset=\"utf-8\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<link")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " rel=\"stylesheet\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " href=\"https://cdnjs.cloudflare.com/ajax/libs/mini.css/3.0.1/mini-default.min.css\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<script")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " type=\"module\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
+		err = Raw("import hotwiredTurbo from 'https://cdn.skypack.dev/@hotwired/turbo';").Render(ctx, w)
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</script>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</head>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<body>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<nav>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<a")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " href=\"/hello\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " target=\"_top\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, templ.EscapeString("Hello"))
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</a>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<a")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " href=\"/goodbye\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " target=\"_top\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, templ.EscapeString("Goodbye"))
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</a>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</nav>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "<turbo-frame")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " id=\"app-container\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, " src=")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, templ.EscapeString(url))
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "\"")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, ">")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, templ.EscapeString("Select an app"))
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</turbo-frame>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</body>")
+		if err != nil {
+			return err
+		}
+		_, err = io.WriteString(w, "</html>")
 		if err != nil {
 			return err
 		}
